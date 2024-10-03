@@ -1,0 +1,199 @@
+:root {
+    --desaturated-red: hsl(0, 36%, 70%);
+    --soft-red: hsl(0, 93%, 68%);
+    --dark-grayish-red: hsl(0, 6%, 24%);
+  }
+
+/* - Mobile: 375px
+- Desktop: 1440px */
+
+  /* ### Gradients
+- Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%)
+- Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%) */
+
+/* ### Font
+- Weights: 300, 400, 600 */
+
+  body{
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 16px;
+    margin: 0;
+    display: grid;
+    height: 100vh;
+    line-height: 1.5;
+    background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));  
+
+  }
+
+@media screen and (min-width: 378px){
+    body{
+        grid-template-columns: 4fr 3fr;
+        grid-template-rows: min-content auto;
+        background-image: url(images/bg-pattern-desktop.svg);
+        background-size: cover; /* Ensures the background image covers the entire element */
+        background-repeat: no-repeat; /* Prevents the background image from repeating */
+    }
+    .hero{
+        grid-column: 2;
+        grid-row: 1 / span 2;    
+    }
+}
+
+/* Hero section */
+
+.hero{
+    width: 100%;
+    height: 200px;
+    background-image: url(/images/hero-mobile.jpg);
+    background-size: cover; /* Ensures the background image covers the entire element */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+}
+
+@media screen and (min-width: 378px) {
+    .hero{
+        background-image: url(/images/hero-desktop.jpg);
+        height: auto;
+    }
+}
+
+/* Content and logo section */
+
+.logo, .content{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.content{
+    text-align: center;
+}
+
+.title{
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin: 0;
+    line-height: 1;
+    color: var(--dark-grayish-red);
+}
+
+.title-light{
+    color: var(--desaturated-red);
+    font-weight: 300;
+}
+
+.content-text{
+    color: var(--desaturated-red);
+    font-weight: 400;
+}
+
+.email-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 377px) {
+    .logo img{
+        max-width: 100px;
+    }    
+}
+
+@media screen and (min-width: 378px) {
+    .title{
+        font-size: 5rem;
+        letter-spacing: 20px;
+    }
+    .logo, .content{
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+    .logo{
+        margin-top: 4rem;
+    }    
+    .content{
+        text-align: left;
+    }
+}
+
+/* Email section */
+
+.email-div{
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+.email-input{
+ border: 0.5px solid hsla(0, 36%, 70%, 0.5);
+ width: calc(100% - 50px);
+ border-radius: 30px;
+ padding: 15px 20px;
+ background-color: transparent;
+ font-size: 12px;
+ color: hsla(0, 36%, 70%, 0.5);
+ outline: none;
+}
+
+.email-input::placeholder{
+    color: hsla(0, 36%, 70%, 0.5);
+}
+
+.email-input:focus{
+    outline: 1px solid hsl(0, 36%, 70%);
+}
+
+.email-input-invalid{
+    border: 2px solid var(--soft-red);
+}
+
+.email-button{
+    position: absolute; /* Set position to absolute */
+    right: 0; /* Align button to the right */
+    top: 0; /* Align button to the top */
+    width: 60px; /* Set width of button */
+    height: 100%; /* Match height of input */
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    color: #fff;
+    border: none;
+    border-radius: 30px; /* Match border radius of input */
+    cursor: pointer;
+    box-shadow: 0 15px 30px hsla(0, 36%, 70%, 0.5);
+}
+
+.email-button:hover{
+    background: linear-gradient(135deg, hsla(0, 80%, 94%), hsla(0, 74%, 86%));
+
+}
+
+.email-invalid{
+    padding: 15px 20px;
+    color: var(--soft-red);
+    position: absolute;
+}
+
+.icon-invalid{
+    position: absolute;
+    right: 60px;
+    padding: 10px;
+}
+
+@media screen and (min-width: 378px) {
+    .email-input{
+        padding: 20px;
+        font-size: 16px;
+
+    }
+    .icon-invalid{
+        padding: 20px;
+        right: 100px;
+    }
+    .email-button{
+        width: 100px; /* Set width of button */
+    }
+}
